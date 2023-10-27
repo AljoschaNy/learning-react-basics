@@ -1,14 +1,18 @@
 import Article from "./Article.tsx";
+import blogEntries from "../../../assets/blogEntries.ts";
 
 function ArticleList() {
     return (
         <div className="articles-list">
-            <Article />
-            <Article />
-            <Article />
-            <Article />
-            <Article />
-            <Article />
+            {blogEntries.map((entry,index) => {
+                return <Article
+                    key ={index}
+                    title={entry.title}
+                    imageURL={entry.imageURL}
+                    imageAlt={entry.imageAlt}
+                    description={entry.description}
+                />
+            })}
         </div>
     )
 }
